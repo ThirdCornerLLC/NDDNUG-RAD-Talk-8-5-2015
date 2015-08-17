@@ -1,0 +1,43 @@
+﻿@using ThirdCorner.Base.Controls
+
+@{
+    ViewBag.Title = "Search Items";
+}
+<button onclick="location.href='@Url.Action("Edit", "Home", new {id=0})'"><i class="icon-wrench"></i> New Item</button>
+<div class="content-container">
+    <div class="content">
+        <div class="sub-heading">
+            <h1 class="sub-title">Search Items</h1>
+        </div>
+        @using (Html.PagingSortingFormGetHtml(Url.Action("DoSearch"), Url.Action("Export"), "Name", false))
+        {
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="span12" name="name" id="name" placeholder="Name">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn">Search</button>
+            <input type="button" class="btn" value="Reset" onclick="window.location = '@Url.Action("Index")' "/>
+        }
+    </div>
+    <div id='results'></div>
+
+    
+</div>
+
+
+@section afterscripts
+{ 
+    <script type="text/javascript" src="@Url.Content("~/scripts/pagingsorting.js")"></script>
+    
+    <script>
+        $(function () {
+            doHistorySetup();
+        });
+
+
+    </script>
+}

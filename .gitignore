@@ -41,3 +41,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+/Rad.Web/*.user
+/Rad.Web/obj
+/Rad.Web/bin
+/*.suo
+/packages

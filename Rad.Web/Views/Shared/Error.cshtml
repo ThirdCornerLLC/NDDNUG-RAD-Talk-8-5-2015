@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Error";
+}
+
+<hgroup>
+    <h1 class="text-error">Error.</h1>
+    <h2 class="text-error">An error occurred while processing your request.</h2>
+    @if (TempData["exception"] != null)
+    {
+            var ex = TempData["exception"] as Exception;
+            if (ex != null)
+            {
+                @ex.Message<br/>
+                @Html.Raw( ex.StackTrace.Replace("\r","<br />"))
+        
+            }
+    }
+</hgroup>

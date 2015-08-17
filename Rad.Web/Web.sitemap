@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode roles="*" >
+    <siteMapNode url="~/" title="Home">
+      <siteMapNode url="~/home/edit/0" title="New Item" />
+    </siteMapNode>
+<!--    <siteMapNode url="~/admin" title="Admin Tools" roles="admin" >-->
+<!--    </siteMapNode>-->
+  </siteMapNode>
+</siteMap>
+

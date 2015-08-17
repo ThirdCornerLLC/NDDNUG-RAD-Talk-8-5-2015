@@ -1,0 +1,48 @@
+﻿@model Rad.Web.Models.ItemViewModel
+
+@{
+    ViewBag.Title = "Edit User";
+}
+
+<form method="POST" action="@Url.Action("Save", "home", new {id=Model.Item.Id})" id="editForm">
+    <ul>
+        <li>
+            <label class="hideLabel" for="name">Name: </label>
+            <input type="text" name="name" id="name" value="@Model.Item.Name" placeholder="Name" maxlength="50" data-validationtype="required" data-errormessage="Name is required" />
+        </li>
+        
+        <li>
+            <label class="hideLabel" for="manufacturer">Manufacturer: </label>
+            <input type="text" name="manufacturer" id="manufacturer" value="@Model.Item.Manufacturer" placeholder="Manufacturer" maxlength="50" data-validationtype="required" data-errormessage="Manufacturer is required" />
+        </li>
+        
+        <li>
+            <label class="hideLabel" for="serialNumber">Serial Number: </label>
+            <input type="text" name="serialNumber" id="serialNumber" value="@Model.Item.SerialNumber" placeholder="Serial Number" maxlength="50" />
+        </li>
+        
+        <li>
+            <label class="hideLabel" for="price">Price: </label>
+            <input type="number" step="0.01" name="price" id="price" value="@Model.Item.Price" placeholder="Price" maxlength="50" data-validationtype="required" data-errormessage="Price is required" />
+        </li>
+        <li>
+            <label class="hideLabel" for="dateAcquired">Date Acquired: </label>
+            <input type="date" name="dateAcquired" id="dateAcquired" value="@Model.Item.DateAcquired.ToString("yyyy-MM-dd")" placeholder="Date Acquired" maxlength="50" data-validationtype="required" data-errormessage="Date Acquired is required" />
+        </li>
+        
+    </ul>
+    <button class="button" type="submit">
+        <i class="icon-save"></i> Save Item
+    </button>
+</form>
+
+@section onload
+{
+    registerForm('editForm');
+}
+@section afterScripts
+{
+    <script src="@Url.Content("~/scripts/validation.js")"></script>
+}
+
+

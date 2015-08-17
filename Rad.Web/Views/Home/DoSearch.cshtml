@@ -1,0 +1,35 @@
+﻿@using ThirdCorner.Base.Controls
+@model Rad.Web.Models.ItemViewModel
+<div class="content">
+    <div class="sub-heading">
+        <div class="row">
+            <div class="col-sm-10"><h2 class="sub-title">Search Results</h2></div>
+            <div class="col-sm-2"><input type="button" class="btn pull-right" value="Export" onclick="doSearch(false, true) " /></div>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-main table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th id="colName"><a href="javascript:doSort('Name')">Name</a></th>
+                    <th id="colManufacturer"><a href="javascript:doSort('Manufacturer')">Manufacturer</a></th>
+                    <th id="colSerialNumber"><a href="javascript:doSort('SerialNumber')">Serial Number</a></th>
+                    <th id="colDateAcquired"><a href="javascript:doSort('DateAcquired')">Date Acquired</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td><a href="@Url.Action("Edit", "Home", new {id=item.Id})">@item.Name</a></td>
+                        <td>@item.Manufacturer</td>
+                        <td>@item.SerialNumber</td>
+                        <td>@item.DateAcquired.ToString("MM/dd/yyyy")</td>
+                        
+                    </tr>
+                }
+                @Html.Raw(Html.PagerRowGetHtml(4, false))
+            </tbody>
+        </table>
+    </div>
+</div>
